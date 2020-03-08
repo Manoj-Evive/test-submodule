@@ -19,7 +19,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <okhttp.version>3.8.0</okhttp.version>
-        <retrofit.version>2.3.0</retrofit.version>
+        <retrofit.version>2.7.2</retrofit.version>
         <!--        <lombok.version>1.16.16</lombok.version>-->
         <failsafe.version>0.8.0</failsafe.version>
         <guava.version>22.0</guava.version>
