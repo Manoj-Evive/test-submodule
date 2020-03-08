@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO">
+    <!--logFileName is the name for your log file -->
+    <Properties>
+        <Property name="logFileName">history-test</Property>
+    </Properties>
+    <Appenders>
+        <!-- Async Loggers will auto-flush in batches, so switch off immediateFlush. -->
+        <RollingRandomAccessFile name="FILE"
+                                 immediateFlush="false" fileName="logs/${logFileName}.log"
+                                 filePattern="logs/${logFileName}-%d{MM-dd-yyyy}-%i.log.gz">
+            <PatternLayout
+                    pattern="%d{dd MMM yyyy HH:mm:ss,SSS} %5p %marker [%t] %c{1}:%L - [%X{session}] - [%X{user}] - %m%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+            </Policies>
+        </RollingRandomAccessFile>
+        <Console name="CONSOLE" target="SYSTEM_OUT">
+            <PatternLayout
+                    pattern="%d{dd MMM yyyy HH:mm:ss,SSS} %5p %marker [%t] %c{1}:%L - [%X{session}] - [%X{user}] - %m%n"/>
+
+        </Console>
+    </Appenders>
+    <Loggers>
+        <!-- pattern layout actually uses location, so we need to include it -->
+        <AsyncRoot level="INFO" includeLocation="true">
+            <AppenderRef ref="FILE"/>
+            <AppenderRef ref="CONSOLE" level="INFO"/>
+        </AsyncRoot>
+        <!--This is for cassandra log -->
+        <AsyncLogger name="com.datastax.driver" level="INFO"
+                     includeLocation="true" additivity="false">
+            <AppenderRef ref="FILE"/>
+            <AppenderRef ref="CONSOLE"/>
+        </AsyncLogger>
+        <!--You can remove org.thymeleaf if you are not using thymeleaf -->
+        <AsyncLogger name="org.thymeleaf" level="ERROR"
+                     includeLocation="true" additivity="false">
+            <AppenderRef ref="FILE"/>
+            <AppenderRef ref="CONSOLE"/>
+        </AsyncLogger>
+        <!--To avoid PageNotFound logs -->
+        <AsyncLogger name="org.springframework.web.servlet.PageNotFound" level="ERROR"
+                     includeLocation="true" additivity="false">
+            <AppenderRef ref="FILE"/>
+            <AppenderRef ref="CONSOLE"/>
+        </AsyncLogger>
+    </Loggers>
+</Configuration>

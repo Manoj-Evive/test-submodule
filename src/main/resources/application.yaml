@@ -1,0 +1,44 @@
+spring:
+  application:
+    name: history-test
+  main:
+    banner-mode: "off"
+  jackson:
+    serialization:
+      write_dates_as_timestamps: false
+  jmx:
+    enabled: false
+  #  http:
+  #      multipart:
+  #        file-size-threshold: 100Mb # Threshold after which files will be written to disk.
+  #        max-file-size: -1 # Max file size.
+  #        max-request-size: -1 # Max request size.
+
+  redis:
+    cluster:
+      nodes: 10.13.1.33:17000
+
+#server:
+#  port: 9091
+
+
+props:
+  file:
+    path: /Users/manoj/IdeaProjects/history-test/properties
+
+---
+spring:
+  profiles: development
+logging:
+  config: "classpath:log4j2-prod.xml"
+---
+spring:
+  profiles: test
+logging:
+  config: "classpath:log4j2-prod.xml"
+---
+spring:
+  profiles: production
+logging:
+  config: "classpath:log4j2-prod.xml"
+
