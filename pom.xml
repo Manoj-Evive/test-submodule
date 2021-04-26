@@ -54,7 +54,7 @@
         <selenium.shutterbug.version>0.7</selenium.shutterbug.version>
         <testng.version>7.1.0</testng.version>
         <spring.test.version>5.2.2.RELEASE</spring.test.version>
-        <commons.io.version>2.6</commons.io.version>
+        <commons.io.version>2.7</commons.io.version>
         <extentreports.version>4.0.9</extentreports.version>
         <!--        <junit.jupiter.params.version>5.2.0</junit.jupiter.params.version>-->
 
