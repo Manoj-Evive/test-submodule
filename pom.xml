@@ -23,7 +23,7 @@
         <!--        <lombok.version>1.16.16</lombok.version>-->
         <failsafe.version>0.8.0</failsafe.version>
         <guava.version>22.0</guava.version>
-        <httpclient.version>4.5.3</httpclient.version>
+        <httpclient.version>4.5.13</httpclient.version>
         <disruptor.version>3.3.6</disruptor.version>
         <itextpdf.version>5.0.6</itextpdf.version>
         <google.findbug.version>3.0.1</google.findbug.version>
